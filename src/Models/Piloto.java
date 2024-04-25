@@ -3,25 +3,25 @@ package Models;
 public class Piloto extends Pessoas {
     // brevê é o nome dado a certificaçao concedida pra pilotar tipo carteira de
     // piloto kkkk
-    int idbrevê;
+    int idbreve;
     // piloto pode ser piloto(conduz a aeronave) ou copiloto(conduz navegaçao)
     String funcaoVoo;
 
     public Piloto() {
     }
 
-    public Piloto(String nome, int cpf, String telefone, int idbrevê, String funcaoVoo) {
+    public Piloto(String nome, int cpf, String telefone, int idbreve, String funcaoVoo) {
         super(nome, cpf, telefone);
-        this.idbrevê = idbrevê;
+        this.idbreve = idbreve;
         this.funcaoVoo = funcaoVoo;
     }
 
-    public int getIdbrevê() {
-        return idbrevê;
+    public int getIdbreve() {
+        return idbreve;
     }
 
-    public void setIdbrevê(int idbrevê) {
-        this.idbrevê = idbrevê;
+    public void setIdbreve(int idbrevê) {
+        this.idbreve = idbrevê;
     }
 
     public String getFuncaoVoo() {

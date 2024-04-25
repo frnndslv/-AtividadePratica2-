@@ -1,13 +1,13 @@
 package Models;
 
-public class Passageiros extends Pessoas {
+public class Passageiro extends Pessoas {
     String numeroPoltrona;
     String numeroCartaoEmbarque;
 
-    public Passageiros() {
+    public Passageiro() {
     }
 
-    public Passageiros(String nome, int cpf, String telefone, String numeroPoltrona, String numeroCartaoEmbarque) {
+    public Passageiro(String nome, int cpf, String telefone, String numeroPoltrona, String numeroCartaoEmbarque) {
         super(nome, cpf, telefone);
         this.numeroPoltrona = numeroPoltrona;
         this.numeroCartaoEmbarque = numeroCartaoEmbarque;
