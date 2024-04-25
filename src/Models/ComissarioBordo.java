@@ -9,7 +9,8 @@ public class ComissarioBordo extends Pessoas {
 
     }
 
-    public ComissarioBordo(int idCarteiraComissario, String funcaoVoo) {
+    public ComissarioBordo(String nome, int cpf, String telefone, int idCarteiraComissario, String funcaoVoo) {
+        super(nome, cpf, telefone);
         this.idCarteiraComissario = idCarteiraComissario;
         this.funcaoVoo = funcaoVoo;
 
