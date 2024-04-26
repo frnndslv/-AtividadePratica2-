@@ -2,26 +2,26 @@ package Models;
 
 public class ComissarioBordo extends Pessoas {
 
-    int idCarteiraComissario;
+    int IdComissario;
     String funcaoVoo;
 
     public ComissarioBordo() {
 
     }
 
-    public ComissarioBordo(String nome, int cpf, String telefone, int idCarteiraComissario, String funcaoVoo) {
+    public ComissarioBordo(String nome, int cpf, String telefone, int IdComissario, String funcaoVoo) {
         super(nome, cpf, telefone);
-        this.idCarteiraComissario = idCarteiraComissario;
+        this.IdComissario = IdComissario;
         this.funcaoVoo = funcaoVoo;
 
     }
 
-    public int getIdCarteiraComissario() {
-        return idCarteiraComissario;
+    public int getIdComissario() {
+        return IdComissario;
     }
 
-    public void setIdCarteiraComissario(int idCarteiraComissario) {
-        this.idCarteiraComissario = idCarteiraComissario;
+    public void setIdComissario(int idComissario) {
+        this.IdComissario = IdComissario;
     }
 
     public String getFuncaoVoo() {
