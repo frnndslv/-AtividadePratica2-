@@ -1,15 +1,15 @@
 package Models;
 
-public class Pessoas {
+public class Pessoa {
     String nome;
     long cpf;
     String telefone;
 
-    public Pessoas() {
+    public Pessoa() {
 
     }
 
-    public Pessoas(String nome, long cpf, String telefone) {
+    public Pessoa(String nome, long cpf, String telefone) {
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;

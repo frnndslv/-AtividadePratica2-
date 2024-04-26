@@ -1,10 +1,8 @@
 package Models;
 
-import java.util.ArrayList;
-
-public class Piloto extends Pessoas {
+public class Piloto extends Pessoa {
     // brevê é o nome dado a certificaçao concedida pra pilotar tipo carteira de
-    // piloto kkkk
+    // piloto.
     int idbreve;
     // piloto pode ser piloto(conduz a aeronave) ou copiloto(conduz navegaçao)
     String funcaoVoo;

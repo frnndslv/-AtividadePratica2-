@@ -3,31 +3,18 @@ package Models;
 import java.util.ArrayList;
 
 public class Voo {
-    private Aviao aviao;
-    private ArrayList<Pessoas> pessoas = new ArrayList<Pessoas>();
+
+    private ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>();
     private String textoResposta;
 
     public Voo() {
     }
 
-    public Voo(Aviao aviao, ArrayList<Pessoas> pessoas) {
-        this.aviao = aviao;
-        this.pessoas = pessoas;
-    }
-
-    public Aviao getAviao() {
-        return aviao;
-    }
-
-    public void setAviao(Aviao aviao) {
-        this.aviao = aviao;
-    }
-
-    public ArrayList<Pessoas> getPessoas() {
+    public ArrayList<Pessoa> getPessoas() {
         return pessoas;
     }
 
-    public void setPessoas(ArrayList<Pessoas> pessoas) {
+    public void setPessoas(ArrayList<Pessoa> pessoas) {
         this.pessoas = pessoas;
     }
 

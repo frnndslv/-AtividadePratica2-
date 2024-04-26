@@ -1,6 +1,6 @@
 package Models;
 
-public class Comissario extends Pessoas {
+public class Comissario extends Pessoa {
 
     int idCarteiraComissario;
     String funcaoVoo;
@@ -34,8 +34,8 @@ public class Comissario extends Pessoas {
 
     @Override
     public String toString() {
-        return "ComissarioBordo [nome=" + nome + ", cpf=" + cpf + ", idCarteiraComissario=" + idCarteiraComissario
-                + ", telefone=" + telefone + ", funcaoVoo=" + funcaoVoo + "]";
+        return "ComissarioBordo nome=" + nome + ", cpf=" + cpf + ", idCarteiraComissario=" + idCarteiraComissario
+                + ", telefone=" + telefone + ", funcaoVoo=" + funcaoVoo;
     }
 
 }

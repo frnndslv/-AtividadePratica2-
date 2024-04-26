@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 import Models.Comissario;
 import Models.Passageiro;
-import Models.Pessoas;
+import Models.Pessoa;
 import Models.Piloto;
 import Models.Voo;
 
@@ -122,7 +122,7 @@ public class Sistema {
     }
 
     private static void excluir(long cpf) {
-        ArrayList<Pessoas> pessoas = voo.getPessoas();
+        ArrayList<Pessoa> pessoas = voo.getPessoas();
         int index = -1;
         for (int i = 0; i < pessoas.size(); i++) {
             if (pessoas.get(i).getCpf() == cpf) {
@@ -157,7 +157,7 @@ public class Sistema {
 
         System.out.println("Cadastro realizado com sucesso!!\n");
 
-        ArrayList<Pessoas> pessoas = voo.getPessoas();
+        ArrayList<Pessoa> pessoas = voo.getPessoas();
         pessoas.add(piloto1);
         voo.setPessoas(pessoas);
     }
@@ -182,7 +182,7 @@ public class Sistema {
 
         System.out.println("Cadastro realizado com sucesso!!\n");
 
-        ArrayList<Pessoas> pessoas = voo.getPessoas();
+        ArrayList<Pessoa> pessoas = voo.getPessoas();
         pessoas.add(comissario1);
         voo.setPessoas(pessoas);
 
@@ -208,16 +208,16 @@ public class Sistema {
 
         System.out.println("Cadastro realizado com sucesso!!\n");
 
-        ArrayList<Pessoas> pessoas = voo.getPessoas();
+        ArrayList<Pessoa> pessoas = voo.getPessoas();
         pessoas.add(passageiro1);
         voo.setPessoas(pessoas);
     }
 
     public static void listarPiloto() {
         // esse array de pessoas( que tem nome piloto) so pra imprimir.
-        ArrayList<Pessoas> pilotos = new ArrayList<Pessoas>();
+        ArrayList<Pessoa> pilotos = new ArrayList<Pessoa>();
 
-        ArrayList<Pessoas> pessoas = voo.getPessoas();
+        ArrayList<Pessoa> pessoas = voo.getPessoas();
         // pego pessos cadastradas de voo, e coloco num array,
         // percorro todo esse array
 
@@ -239,9 +239,9 @@ public class Sistema {
     // eu so repeti tudo de antes mudando piloto pra passageiro.
     public static void listarPassageiro() {
 
-        ArrayList<Pessoas> passageiros = new ArrayList<Pessoas>();
+        ArrayList<Pessoa> passageiros = new ArrayList<Pessoa>();
 
-        ArrayList<Pessoas> pessoas = voo.getPessoas();
+        ArrayList<Pessoa> pessoas = voo.getPessoas();
 
         for (int i = 0; i < pessoas.size(); i++) {
 
@@ -256,9 +256,9 @@ public class Sistema {
     }
 
     public static void listarComissario() {
-        ArrayList<Pessoas> comissarios = new ArrayList<Pessoas>();
+        ArrayList<Pessoa> comissarios = new ArrayList<Pessoa>();
 
-        ArrayList<Pessoas> pessoas = voo.getPessoas();
+        ArrayList<Pessoa> pessoas = voo.getPessoas();
 
         for (int i = 0; i < pessoas.size(); i++) {
 
@@ -273,7 +273,7 @@ public class Sistema {
     }
 
     public static void listarTodos() {
-        ArrayList<Pessoas> pessoas = voo.getPessoas();
+        ArrayList<Pessoa> pessoas = voo.getPessoas();
         System.out.println(pessoas.toString());
 
     }
@@ -303,7 +303,7 @@ public class Sistema {
     }
 
     public static void excluirTodos() {
-        ArrayList<Pessoas> pessoas = voo.getPessoas();
+        ArrayList<Pessoa> pessoas = voo.getPessoas();
         System.out.println(pessoas.toString());
 
     }

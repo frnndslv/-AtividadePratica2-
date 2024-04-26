@@ -1,6 +1,6 @@
 package Models;
 
-public class Passageiro extends Pessoas {
+public class Passageiro extends Pessoa {
     String numeroPoltrona;
     String numeroCartaoEmbarque;
 
