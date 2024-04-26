@@ -14,17 +14,4 @@ public class Cadastro {
     public static List<Pessoa> getListaPessoa() {
         return listaPessoa;
     }
-
-    public static Pessoa buscar(int matricula) {
-
-        for (Pessoa Pes : listaPessoa) {
-
-            if (Pes.getMatricula() == matricula) {
-
-                return Pes;
-            }
-        }
-        return null;
-    }
-
 }
