@@ -1,6 +1,6 @@
 package Models;
 
-public class ComissarioBordo extends Pessoas {
+public class ComissarioBordo extends Pessoa {
 
     int IdComissario;
     String funcaoVoo;
