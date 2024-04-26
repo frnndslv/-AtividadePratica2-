@@ -2,9 +2,9 @@ package Models;
 
 public class Piloto extends Pessoas {
     // brevê é o nome dado a certificaçao concedida pra pilotar tipo carteira de
-    // piloto kkkk
+    // piloto 
     int idbreve;
-    // piloto pode ser piloto(conduz a aeronave) ou copiloto(conduz navegaçao)
+    // piloto pode ser piloto (conduz a aeronave) ou copiloto(conduz navegaçao)
     String funcaoVoo;
 
     public Piloto() {
