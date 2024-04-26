@@ -1,6 +1,6 @@
 package Models;
 
-public class Pessoas {
+public class Pessoa {
     String nome;
     int cpf;
     String telefone;
@@ -9,7 +9,7 @@ public class Pessoas {
 
     }
 
-    public Pessoas(String nome, int cpf, String telefone) {
+    public Pessoa(String nome, int cpf, String telefone) {
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
