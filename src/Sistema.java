@@ -279,15 +279,82 @@ public class Sistema {
     }
 
     public static void buscarPiloto() {
+        ArrayList<Pessoa> pilotos = new ArrayList<Pessoa>();
+
+        ArrayList<Pessoa> pessoas = voo.getPessoas();
+        System.out.println("Informe o cpf do piloto que deseja buscar:");
+        long cpf = Console.lerLong();
+        boolean achouCpf = false;
+        for (int i = 0; i < pessoas.size(); i++) {
+
+            if (pessoas.get(i) instanceof Piloto) {
+                pilotos.add(pessoas.get(i));
+            }
+        }
+
+        for (int i = 0; i < pilotos.size(); i++) {
+            if (pilotos.get(i).getCpf() == cpf) {
+                System.out.println(pilotos.get(i).toString());
+                achouCpf = true;
+            }
+
+        }
+        if (achouCpf == false) {
+            System.out.println("Piloto nao encontrado!!");
+        }
 
     }
 
     public static void buscarPassageiro() {
+        ArrayList<Pessoa> passageiros = new ArrayList<Pessoa>();
 
+        ArrayList<Pessoa> pessoas = voo.getPessoas();
+        System.out.println("Informe o cpf do Passageiro que deseja buscar:");
+        long cpf = Console.lerLong();
+        boolean achouCpf = false;
+        for (int i = 0; i < pessoas.size(); i++) {
+
+            if (pessoas.get(i) instanceof Passageiro) {
+                passageiros.add(pessoas.get(i));
+            }
+        }
+
+        for (int i = 0; i < passageiros.size(); i++) {
+            if (passageiros.get(i).getCpf() == cpf) {
+                System.out.println(passageiros.get(i).toString());
+                achouCpf = true;
+            }
+
+        }
+        if (achouCpf == false) {
+            System.out.println("Passageiro nao encontrado!!");
+        }
     }
 
     public static void buscarComissario() {
+        ArrayList<Pessoa> comissario = new ArrayList<Pessoa>();
 
+        ArrayList<Pessoa> pessoas = voo.getPessoas();
+        System.out.println("Informe o cpf do comissario que deseja buscar:");
+        long cpf = Console.lerLong();
+        boolean achouCpf = false;
+        for (int i = 0; i < pessoas.size(); i++) {
+
+            if (pessoas.get(i) instanceof Passageiro) {
+                comissario.add(pessoas.get(i));
+            }
+        }
+
+        for (int i = 0; i < comissario.size(); i++) {
+            if (comissario.get(i).getCpf() == cpf) {
+                System.out.println(comissario.get(i).toString());
+                achouCpf = true;
+            }
+
+        }
+        if (achouCpf == false) {
+            System.out.println("Comissario nao encontrado!!");
+        }
     }
 
     public static void excluirPiloto() {
