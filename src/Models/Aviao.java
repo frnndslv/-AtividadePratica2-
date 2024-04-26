@@ -39,4 +39,10 @@ public class Aviao {
         this.tamanhoAviao = tamanhoAviao;
     }
 
+    @Override
+    public String toString() {
+        return "Aviao [idAviaoAviao=" + idAviaoAviao + ", modeloAviao=" + modeloAviao + ", tamanhoAviao=" + tamanhoAviao
+                + "]";
+    }
+
 }

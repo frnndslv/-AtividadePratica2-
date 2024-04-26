@@ -1,5 +1,7 @@
 package Models;
 
+import java.util.ArrayList;
+
 public class Piloto extends Pessoas {
     // brevê é o nome dado a certificaçao concedida pra pilotar tipo carteira de
     // piloto kkkk
@@ -20,8 +22,8 @@ public class Piloto extends Pessoas {
         return idbreve;
     }
 
-    public void setIdbreve(int idbrevê) {
-        this.idbreve = idbrevê;
+    public void setIdbreve(int idbreve) {
+        this.idbreve = idbreve;
     }
 
     public String getFuncaoVoo() {
@@ -30,6 +32,12 @@ public class Piloto extends Pessoas {
 
     public void setFuncaoVoo(String funcaoVoo) {
         this.funcaoVoo = funcaoVoo;
+    }
+
+    @Override
+    public String toString() {
+        return "Piloto [nome=" + nome + ", cpf=" + cpf + ", telefone=" + telefone + ", idbreve=" + idbreve
+                + ", funcaoVoo=" + funcaoVoo + "]";
     }
 
 }

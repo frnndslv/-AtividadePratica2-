@@ -1,15 +1,15 @@
 package Models;
 
-public class ComissarioBordo extends Pessoas {
+public class Comissario extends Pessoas {
 
     int idCarteiraComissario;
     String funcaoVoo;
 
-    public ComissarioBordo() {
+    public Comissario() {
 
     }
 
-    public ComissarioBordo(String nome, long cpf, String telefone, int idCarteiraComissario, String funcaoVoo) {
+    public Comissario(String nome, long cpf, String telefone, int idCarteiraComissario, String funcaoVoo) {
         super(nome, cpf, telefone);
         this.idCarteiraComissario = idCarteiraComissario;
         this.funcaoVoo = funcaoVoo;
@@ -30,6 +30,12 @@ public class ComissarioBordo extends Pessoas {
 
     public void setFuncaoVoo(String funcaoVoo) {
         this.funcaoVoo = funcaoVoo;
+    }
+
+    @Override
+    public String toString() {
+        return "ComissarioBordo [nome=" + nome + ", cpf=" + cpf + ", idCarteiraComissario=" + idCarteiraComissario
+                + ", telefone=" + telefone + ", funcaoVoo=" + funcaoVoo + "]";
     }
 
 }

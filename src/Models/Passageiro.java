@@ -29,4 +29,10 @@ public class Passageiro extends Pessoas {
         this.numeroCartaoEmbarque = numeroCartaoEmbarque;
     }
 
+    @Override
+    public String toString() {
+        return "Passageiro [nome=" + nome + ", cpf=" + cpf + ", numeroPoltrona=" + numeroPoltrona + ", telefone="
+                + telefone + ", numeroCartaoEmbarque=" + numeroCartaoEmbarque + "]";
+    }
+
 }

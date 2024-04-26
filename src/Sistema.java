@@ -1,145 +1,311 @@
-import Models.ComissarioBordo;
+import java.util.ArrayList;
+
+import Models.Comissario;
 import Models.Passageiro;
+import Models.Pessoas;
 import Models.Piloto;
+import Models.Voo;
 
 public class Sistema {
 
-    public static void MenuInicial() {
+    public static Voo voo = new Voo();
 
-        System.out.println("\nAVIAO VOO SYSTEM");
-        System.out.println("\nDeseja realizar procedimetos para qual categoria: \n");
-        System.out.println("Digite 1 para Pilotos.\n");
-        System.out.println("Digite 2 para Comissarios.\n");
-        System.out.println("Digite 3 para Passageiros.\n");
-        System.out.println("Ou caso queira ver todos a bordo do voo digite 4.\n");
-        System.out.println("Digite zero para finalizar / Sair");
+    public static void menuInicial() {
+        int op;
+        do {
+            System.out.println("\nAVIAO VOO SYSTEM");
+            System.out.println("\nProcedimetos: \n");
+            System.out.println("Digite 1 para Cadastrar.\n");
+            System.out.println("Digite 2 para Buscar.\n");
+            System.out.println("Digite 3 para Listar.\n");
+            System.out.println("Digite 4 para Excluir.\n");
+            System.out.println("Digite 0 (zero) para finalizar / Sair");
+            op = lendoOp();
+            if (op != 0)
+                menuSecundario(op);
+
+        } while (op != 0);
+
+        System.out.println("Programa Finalizado!");
 
     }
 
-    public static void menuSecundario() {
-        MenuInicial();
-        int op = lendoOp();
-        String qualTipoPessoa = "";
-        switch (op) {
-            case 1:
-                qualTipoPessoa = "Piloto";
+    private static void menuSecundario(int opcao) {
+        int op2;
+        do {
+            System.out.println("\nAVIAO VOO SYSTEM");
+            System.out.println("\nDeseja realizar procedimetos para qual categoria: \n");
+            System.out.println("Digite 1 para Pilotos.\n");
+            System.out.println("Digite 2 para Comissarios.\n");
+            System.out.println("Digite 3 para Passageiros.\n");
+            if (opcao != 1 && opcao != 2) {
+                System.out.println("Digite 4 para Todos a bordo.\n");
+            }
+            System.out.println("Digite 5 para Voltar ao menu inicial.\n");
+            op2 = lendoOp();
+            if (op2 != 5)
+                switchOpcao(opcao, op2);
+        } while (op2 != 5);
 
+        System.out.println("Voltando para o menu principal!");
+
+    }
+
+    private static void switchOpcao(int opcao1, int opcao2) {
+        switch (opcao1) {
+            case 1:
+                if (opcao2 == 1) {
+                    cadastrarPiloto();
+                } else if (opcao2 == 2) {
+                    cadastrarComissario();
+                } else if (opcao2 == 3) {
+                    cadastrarPassageiro();
+                } else {
+                    System.out.println("Opção invalida!");
+                    return;
+                }
                 break;
             case 2:
-                qualTipoPessoa = "Comissario";
-
+                if (opcao2 == 1) {
+                    buscarPiloto();
+                } else if (opcao2 == 2) {
+                    buscarComissario();
+                } else if (opcao2 == 3) {
+                    buscarPassageiro();
+                } else {
+                    System.out.println("Opção invalida!");
+                    return;
+                }
                 break;
             case 3:
-                qualTipoPessoa = "Passageiro";
-
+                if (opcao2 == 1) {
+                    listarPiloto();
+                } else if (opcao2 == 2) {
+                    listarComissario();
+                } else if (opcao2 == 3) {
+                    listarPassageiro();
+                } else if (opcao2 == 4) {
+                    listarTodos();
+                } else if (opcao2 == 5) {
+                    menuInicial();
+                } else {
+                    System.out.println("Opção invalida!");
+                    return;
+                }
                 break;
-            case 0:
-
-                System.out.println("programa finalizado \n");
-
+            case 4:
+                if (opcao2 == 1) {
+                    excluirPiloto();
+                } else if (opcao2 == 2) {
+                    excluirComissario();
+                } else if (opcao2 == 3) {
+                    excluirPassageiro();
+                } else if (opcao2 == 4) {
+                    excluirTodos();
+                } else if (opcao2 == 5) {
+                    menuInicial();
+                } else {
+                    System.out.println("Opção invalida!");
+                    return;
+                }
                 break;
-
             default:
-                System.out.println("Opçao invalida !! \n");
-
+                System.out.println("Opção invalida!");
                 break;
-
         }
-
-        System.out.print("Informe uma opção: \n");
-        System.out.println("1) Cadastrar novo  " + qualTipoPessoa + ".\n");
-        System.out.println("2) Alterar informaçoes do " + qualTipoPessoa + ".\n");
-        System.out.println("4) Voltar para o menu principal ");
-        System.out.println("0) Finalizar programa ");
 
     }
 
-    public static int lendoOp() {
+    private static int lendoOp() {
         int op = Console.lerInt();
         return op;
     }
 
-    public static void verificandoOp() {
-
-        int opp = lendoOp();
-        do {
-            menuSecundario();
-
-            switch (opp) {
-                case 1:
-                    cadastrarPiloto();
-
-                    break;
-                case 2:
-                    cadastrarComissario();
-
-                    break;
-                case 3:
-                    cadastrarPassageiro();
-
-                    break;
-                case 4:
-                    menuSecundario();
-
-                    break;
-                case 0:
-
-                    System.out.println("programa finalizado \n");
-
-                    break;
-
-                default:
-                    System.out.println("Opçao invalida !! \n");
-
-                    break;
+    private static void excluir(long cpf) {
+        ArrayList<Pessoas> pessoas = voo.getPessoas();
+        int index = -1;
+        for (int i = 0; i < pessoas.size(); i++) {
+            if (pessoas.get(i).getCpf() == cpf) {
+                index = i;
             }
-
-        } while (opp != 0);
-
-    }
-
-    public static void ExibirMenuCompleto() {
-
+        }
+        if (index != -1) {
+            pessoas.remove(index);
+            voo.setPessoas(pessoas);
+        } else {
+            System.out.println("Cpf não encontrado!!");
+        }
     }
 
     public static void cadastrarPiloto() {
         Piloto piloto1 = new Piloto();
+
         System.out.print("Nome do piloto: \n");
         piloto1.setNome(Console.lerString());
+
         System.out.println("numero do cpf\n");
         piloto1.setCpf(Console.lerLong());
+
         System.out.println("numero do bres\n");
         piloto1.setIdbreve(Console.lerInt());
+
+        System.out.println("telefone\n");
+        piloto1.setTelefone(Console.lerString());
+
         System.out.println("Funçao no voo\n");
         piloto1.setFuncaoVoo(Console.lerString());
+
         System.out.println("Cadastro realizado com sucesso!!\n");
+
+        ArrayList<Pessoas> pessoas = voo.getPessoas();
+        pessoas.add(piloto1);
+        voo.setPessoas(pessoas);
     }
 
     public static void cadastrarComissario() {
-        ComissarioBordo comissario1 = new ComissarioBordo();
+        Comissario comissario1 = new Comissario();
+
         System.out.print("Nome do Comissario: \n");
         comissario1.setNome(Console.lerString());
+
         System.out.println("Numero do cpf\n");
         comissario1.setCpf(Console.lerLong());
+
         System.out.println("Numero de identificaçao do comissario\n");
         comissario1.setIdCarteiraComissario(Console.lerInt());
+
+        System.out.println("telefone\n");
+        comissario1.setTelefone(Console.lerString());
+
         System.out.println("Funçao no voo\n");
         comissario1.setFuncaoVoo(Console.lerString());
+
         System.out.println("Cadastro realizado com sucesso!!\n");
+
+        ArrayList<Pessoas> pessoas = voo.getPessoas();
+        pessoas.add(comissario1);
+        voo.setPessoas(pessoas);
 
     }
 
     public static void cadastrarPassageiro() {
         Passageiro passageiro1 = new Passageiro();
+
         System.out.print("Nome do passageiro: \n");
         passageiro1.setNome(Console.lerString());
+
         System.out.println("numero do cpf\n");
         passageiro1.setCpf(Console.lerLong());
+
+        System.out.println("telefone\n");
+        passageiro1.setTelefone(Console.lerString());
+
         System.out.println("numero voo\n");
         passageiro1.setNumeroPoltrona(Console.lerString());
+
         System.out.println("Numero do cartao de embarque\n");
         passageiro1.setNumeroCartaoEmbarque(Console.lerString());
+
         System.out.println("Cadastro realizado com sucesso!!\n");
+
+        ArrayList<Pessoas> pessoas = voo.getPessoas();
+        pessoas.add(passageiro1);
+        voo.setPessoas(pessoas);
+    }
+
+    public static void listarPiloto() {
+        // esse array de pessoas( que tem nome piloto) so pra imprimir.
+        ArrayList<Pessoas> pilotos = new ArrayList<Pessoas>();
+
+        ArrayList<Pessoas> pessoas = voo.getPessoas();
+        // pego pessos cadastradas de voo, e coloco num array,
+        // percorro todo esse array
+
+        for (int i = 0; i < pessoas.size(); i++) {
+            // eu verifico se em array pessoa, a pessoa é do tipo piloto? se sim eu pego
+            // e adiciono em outro array para imprimir, isso foi uma gambi, espremi que nem
+            // pedra e nao saiu nada melhor.
+            if (pessoas.get(i) instanceof Piloto) {
+                pilotos.add(pessoas.get(i));
+            }
+        }
+
+        for (int i = 0; i < pilotos.size(); i++) {
+            System.out.println(pilotos.get(i).toString());
+        }
+
+    }
+
+    // eu so repeti tudo de antes mudando piloto pra passageiro.
+    public static void listarPassageiro() {
+
+        ArrayList<Pessoas> passageiros = new ArrayList<Pessoas>();
+
+        ArrayList<Pessoas> pessoas = voo.getPessoas();
+
+        for (int i = 0; i < pessoas.size(); i++) {
+
+            if (pessoas.get(i) instanceof Passageiro) {
+                passageiros.add(pessoas.get(i));
+            }
+        }
+
+        for (int i = 0; i < passageiros.size(); i++) {
+            System.out.println(passageiros.get(i).toString());
+        }
+    }
+
+    public static void listarComissario() {
+        ArrayList<Pessoas> comissarios = new ArrayList<Pessoas>();
+
+        ArrayList<Pessoas> pessoas = voo.getPessoas();
+
+        for (int i = 0; i < pessoas.size(); i++) {
+
+            if (pessoas.get(i) instanceof Comissario) {
+                comissarios.add(pessoas.get(i));
+            }
+        }
+
+        for (int i = 0; i < comissarios.size(); i++) {
+            System.out.println(comissarios.get(i).toString());
+        }
+    }
+
+    public static void listarTodos() {
+        ArrayList<Pessoas> pessoas = voo.getPessoas();
+        System.out.println(pessoas.toString());
+
+    }
+
+    public static void buscarPiloto() {
+
+    }
+
+    public static void buscarPassageiro() {
+
+    }
+
+    public static void buscarComissario() {
+
+    }
+
+    public static void excluirPiloto() {
+
+    }
+
+    public static void excluirPassageiro() {
+
+    }
+
+    public static void excluirComissario() {
+
+    }
+
+    public static void excluirTodos() {
+        ArrayList<Pessoas> pessoas = voo.getPessoas();
+        System.out.println(pessoas.toString());
+
     }
 
 }
