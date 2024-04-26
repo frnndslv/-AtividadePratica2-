@@ -133,22 +133,6 @@ public class Sistema {
         return op;
     }
 
-    private static void excluir(long cpf) {
-        ArrayList<Pessoa> pessoas = voo.getPessoas();
-        int index = -1;
-        for (int i = 0; i < pessoas.size(); i++) {
-            if (pessoas.get(i).getCpf() == cpf) {
-                index = i;
-            }
-        }
-        if (index != -1) {
-            pessoas.remove(index);
-            voo.setPessoas(pessoas);
-        } else {
-            System.out.println("Cpf não encontrado!!");
-        }
-    }
-
     public static void cadastrarPiloto() {
         Piloto piloto1 = new Piloto();
 

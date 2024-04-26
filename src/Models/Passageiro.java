@@ -7,8 +7,8 @@ public class Passageiro extends Pessoa {
     public Passageiro() {
     }
 
-    public Passageiro(String nome, long cpf, String telefone, String numeroPoltrona, String numeroCartaoEmbarque) {
-        super(nome, cpf, telefone);
+    public Passageiro(long cpf, String nome, String telefone, String numeroPoltrona, String numeroCartaoEmbarque) {
+        super(cpf, nome, telefone);
         this.numeroPoltrona = numeroPoltrona;
         this.numeroCartaoEmbarque = numeroCartaoEmbarque;
     }

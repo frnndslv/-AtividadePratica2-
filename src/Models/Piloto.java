@@ -1,7 +1,6 @@
 package Models;
 
 public class Piloto extends Pessoa {
-public class Piloto extends Pessoa {
     // brevê é o nome dado a certificaçao concedida pra pilotar tipo carteira de
     // piloto.
     int idbreve;
@@ -11,14 +10,14 @@ public class Piloto extends Pessoa {
     public Piloto() {
     }
 
-    public Piloto(String nome, long cpf, String telefone, int idbreve, String funcaoVoo) {
-        super(nome, cpf, telefone);
-        this.idbreve = Idbreve;
+    public Piloto(long cpf, String nome, String telefone, int idbreve, String funcaoVoo) {
+        super(cpf, nome, telefone);
+        this.idbreve = idbreve;
         this.funcaoVoo = funcaoVoo;
     }
 
     public int getIdbreve() {
-        return Idbreve;
+        return idbreve;
     }
 
     public void setIdbreve(int idbreve) {

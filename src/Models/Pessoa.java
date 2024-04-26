@@ -1,38 +1,26 @@
 package Models;
 
 public class Pessoa {
-     cp Stri
-    g telefone;
     String nome;
+    String telefone;
+    long cpf;
 
     public Pessoa() {
-
-    
     }
-    p
 
+    public Pessoa(long cpf, String nome, String telefone) {
+        this.cpf = cpf;
         this.nome = nome;
         this.telefone = telefone;
+
     }
 
-
-    ic void
-
-    
-
-
+    public String getNome() {
+        return nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public long getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(long cpf) {
-        this.cpf = cpf;
     }
 
     public String getTelefone() {
@@ -43,13 +31,12 @@ public class Pessoa {
         this.telefone = telefone;
     }
 
-       @Override
-
-     return "\nCPF: " + cpf +
-                "\nNome: " + nome;
+    public long getCpf() {
+        return cpf;
     }
 
-     
+    public void setCpf(long cpf) {
+        this.cpf = cpf;
+    }
 
-    
-
+}

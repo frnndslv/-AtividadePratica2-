@@ -1,22 +1,49 @@
 package Models;
 
-public lass Comissario extends Pessoa {
+public class Comissario extends Pessoa {
 
-        int
-        String funcaoVoo;
-        
+    String nome;
+    long cpf;
+    String telefone;
+    int idCarteiraComissario;
+    String funcaoVoo;
+
     public Comissario() {
-
-        }
-
-    public Comissario(String nome, long cpf, String telefone, int idCarteiraComissario, String funcaoVoo) {
-        super(nome, cpf, telefone);
-     
-
-        
 
     }
 
+    public Comissario(long cpf, String nome, String telefone, int idCarteiraComissario, String funcaoVoo) {
+
+        this.cpf = cpf;
+        this.nome = nome;
+        this.telefone = telefone;
+        this.idCarteiraComissario = idCarteiraComissario;
+        this.funcaoVoo = funcaoVoo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public long getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(long cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
 
     public int getIdCarteiraComissario() {
         return idCarteiraComissario;
@@ -26,24 +53,12 @@ public lass Comissario extends Pessoa {
         this.idCarteiraComissario = idCarteiraComissario;
     }
 
-        public String getFuncaoVoo() {
-            return funcaoVoo;
-        }
+    public String getFuncaoVoo() {
+        return funcaoVoo;
+    }
 
-        public void setFuncaoVoo(String funcaoVoo) {
-            this.funcaoVoo = funcaoVoo;
-        }
+    public void setFuncaoVoo(String funcaoVoo) {
+        this.funcaoVoo = funcaoVoo;
+    }
 
-        @Override
-            ic String toStrin
-         
-
-        }
-            
-        
-
-        
-        
-            
-                    
-        
+}
