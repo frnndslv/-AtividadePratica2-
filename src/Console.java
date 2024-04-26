@@ -6,6 +6,7 @@ public class Console {
     public static int lerInt() {
 
         int valor = leitor.nextInt();
+        leitor.nextLine();
         return valor;
 
     }
@@ -13,13 +14,15 @@ public class Console {
     public static long lerLong() {
 
         long valor = leitor.nextLong();
+        leitor.nextLine();
         return valor;
 
     }
 
     public static String lerString() {
 
-        String valor = leitor.next();
+        String valor = leitor.nextLine();
+
         return valor;
 
     }

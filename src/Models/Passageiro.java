@@ -31,8 +31,9 @@ public class Passageiro extends Pessoa {
 
     @Override
     public String toString() {
-        return "Passageiro [nome=" + nome + ", cpf=" + cpf + ", numeroPoltrona=" + numeroPoltrona + ", telefone="
-                + telefone + ", numeroCartaoEmbarque=" + numeroCartaoEmbarque + "]";
+        return "\nPassageiro: " + nome + ",\n cpf: " + cpf + ",\n Numero da poltrona: " + numeroPoltrona
+                + ",\n Telefone: "
+                + telefone + ", Numero Cartao de Embarque: " + numeroCartaoEmbarque + "\n";
     }
 
 }

@@ -31,10 +31,22 @@ public class Sistema {
     }
 
     private static void menuSecundario(int opcao) {
+        String opmenuAlt;
+
+        if (opcao == 1) {
+            opmenuAlt = "Cadastrar";
+        } else if (opcao == 2) {
+            opmenuAlt = "Buscar";
+        } else if (opcao == 3) {
+            opmenuAlt = "Listar";
+        } else {
+            opmenuAlt = "Excluir";
+        }
+
         int op2;
         do {
             System.out.println("\nAVIAO VOO SYSTEM");
-            System.out.println("\nDeseja realizar procedimetos para qual categoria: \n");
+            System.out.println("\nDeseja realizar procedimeto de " + opmenuAlt + " para qual categoria: \n");
             System.out.println("Digite 1 para Pilotos.\n");
             System.out.println("Digite 2 para Comissarios.\n");
             System.out.println("Digite 3 para Passageiros.\n");
@@ -340,7 +352,7 @@ public class Sistema {
         boolean achouCpf = false;
         for (int i = 0; i < pessoas.size(); i++) {
 
-            if (pessoas.get(i) instanceof Passageiro) {
+            if (pessoas.get(i) instanceof Comissario) {
                 comissario.add(pessoas.get(i));
             }
         }
@@ -353,25 +365,103 @@ public class Sistema {
 
         }
         if (achouCpf == false) {
-            System.out.println("Comissario nao encontrado!!");
+            System.out.println("Comissario não encontrado!!");
         }
     }
 
     public static void excluirPiloto() {
+        ArrayList<Pessoa> piloto = new ArrayList<Pessoa>();
+
+        ArrayList<Pessoa> pessoas = voo.getPessoas();
+        System.out.println("Informe o cpf do Piloto que deseja excluir:");
+        long cpf = Console.lerLong();
+        boolean achouCpf = false;
+        for (int i = 0; i < pessoas.size(); i++) {
+
+            if (pessoas.get(i) instanceof Piloto) {
+                piloto.add(pessoas.get(i));
+            }
+        }
+
+        for (int i = 0; i < piloto.size(); i++) {
+            if (piloto.get(i).getCpf() == cpf) {
+                System.out.println("Piloto" + pessoas.get(i) + " excluido!!");
+                piloto.remove(pessoas.get(i));
+                achouCpf = true;
+            }
+
+        }
+        if (achouCpf == false) {
+            System.out.println("Não existem  Pilotos cadastrados para esse voo!!\"");
+        }
 
     }
 
     public static void excluirPassageiro() {
+        ArrayList<Pessoa> passageiro = new ArrayList<Pessoa>();
 
+        ArrayList<Pessoa> pessoas = voo.getPessoas();
+        System.out.println("Informe o cpf do passageiro que deseja excluir:");
+        long cpf = Console.lerLong();
+        boolean achouCpf = false;
+        for (int i = 0; i < pessoas.size(); i++) {
+
+            if (pessoas.get(i) instanceof Passageiro) {
+                passageiro.add(pessoas.get(i));
+            }
+        }
+
+        for (int i = 0; i < passageiro.size(); i++) {
+            if (passageiro.get(i).getCpf() == cpf) {
+                System.out.println("Passageiro " + pessoas.get(i) + " excluido!!");
+                passageiro.remove(pessoas.get(i));
+                achouCpf = true;
+            }
+
+        }
+        if (achouCpf == false) {
+            System.out.println("Não existem  Passageiros cadastrados para esse voo!!");
+        }
     }
 
     public static void excluirComissario() {
+        ArrayList<Pessoa> comissario = new ArrayList<Pessoa>();
 
+        ArrayList<Pessoa> pessoas = voo.getPessoas();
+        System.out.println("Informe o cpf do comissario que deseja excluir:");
+        long cpf = Console.lerLong();
+        boolean achouCpf = false;
+        for (int i = 0; i < pessoas.size(); i++) {
+
+            if (pessoas.get(i) instanceof Comissario) {
+                comissario.add(pessoas.get(i));
+            }
+        }
+
+        for (int i = 0; i < comissario.size(); i++) {
+            if (comissario.get(i).getCpf() == cpf) {
+                System.out.println("Comissario " + pessoas.get(i) + " excluido!!");
+                comissario.remove(pessoas.get(i));
+                achouCpf = true;
+            }
+
+        }
+        if (achouCpf == false) {
+            System.out.println("Não existem  comissarios cadastrados para esse voo!!");
+        }
     }
 
     public static void excluirTodos() {
+
         ArrayList<Pessoa> pessoas = voo.getPessoas();
-        System.out.println(pessoas.toString());
+
+        for (int i = 0; i < pessoas.size(); i++) {
+
+            if (pessoas.get(i) instanceof Comissario) {
+                pessoas.remove(pessoas.get(i));
+            }
+        }
+        System.out.println("Todos os tripulantes e passageiros bem como seus respectivos dados, foram excluidos ");
 
     }
 

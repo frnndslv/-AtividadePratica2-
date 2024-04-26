@@ -34,8 +34,8 @@ public class Piloto extends Pessoa {
 
     @Override
     public String toString() {
-        return "Piloto " + nome + ",\n cpf=" + cpf + ", /n telefone=" + telefone + ",\n idbreve=" + idbreve
-                + ", \n funcaoVoo=" + funcaoVoo + "\n";
+        return "Piloto: " + nome + ",\n cpf: " + cpf + ", \n Telefone: " + telefone + ",\n numero do brevê: " + idbreve
+                + ", \n Funçao no Voo=" + funcaoVoo + "\n";
     }
 
 }
