@@ -10,7 +10,7 @@ public class Piloto extends Pessoas {
     public Piloto() {
     }
 
-    public Piloto(String nome, int cpf, String telefone, int idbreve, String funcaoVoo) {
+    public Piloto(String nome, long cpf, String telefone, int idbreve, String funcaoVoo) {
         super(nome, cpf, telefone);
         this.idbreve = idbreve;
         this.funcaoVoo = funcaoVoo;

@@ -10,9 +10,9 @@ public class Console {
 
     }
 
-    public static float lerFloat() {
+    public static long lerLong() {
 
-        float valor = leitor.nextFloat();
+        long valor = leitor.nextLong();
         return valor;
 
     }

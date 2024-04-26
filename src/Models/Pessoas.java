@@ -2,14 +2,14 @@ package Models;
 
 public class Pessoas {
     String nome;
-    int cpf;
+    long cpf;
     String telefone;
 
     public Pessoas() {
 
     }
 
-    public Pessoas(String nome, int cpf, String telefone) {
+    public Pessoas(String nome, long cpf, String telefone) {
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
@@ -23,11 +23,11 @@ public class Pessoas {
         this.nome = nome;
     }
 
-    public int getCpf() {
+    public long getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(long cpf) {
         this.cpf = cpf;
     }
 
