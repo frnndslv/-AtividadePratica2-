@@ -6,13 +6,13 @@ public class Sistema {
 
     public static void exibirMenuInicial() {
 
-        System.out.println("\nAVIAO VOO SYSTEM");
-        System.out.println("\nDeseja realizar procedimetos para qual categoria: \n");
-        System.out.println("Digite 1 para Pilotos.\n");
-        System.out.println("Digite 2 para Comissarios.\n");
-        System.out.println("Digite 3 para Passageiros.\n");
-        System.out.println("Ou caso queira ver todos a bordo do voo digite 4.\n");
-        System.out.println("Digite zero para finalizar / Sair");
+        System.out.println("\nAVIÃO VOO SYSTEM");
+        System.out.println("\nDeseja realizar procedimentos para qual categoria: ");
+        System.out.println("\nDigite 1 para Pilotos.");
+        System.out.println("\nDigite 2 para Comissários.");
+        System.out.println("\nDigite 3 para Passageiros.");
+        System.out.println("\nVer todos a bordo do voo, digite 4.");
+        System.out.println("\nDigite 0 para finalizar/Sair. ");
 
     }
 
