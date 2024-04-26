@@ -1,9 +1,9 @@
 package Models;
 
 public class Aviao {
-    protected int idAviaoAviao;
-    protected String modeloAviao;
-    protected float tamanhoAviao;
+    private int idAviaoAviao;
+    private String modeloAviao;
+    private float tamanhoAviao;
 
     public Aviao() {
 

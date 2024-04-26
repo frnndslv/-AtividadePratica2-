@@ -17,6 +17,7 @@ public class Sistema {
     }
 
     public static void menuSecundario() {
+        exibirMenuInicial();
         int op = lendoOp();
         String qualTipoPessoa = "";
         switch (op) {
@@ -60,9 +61,8 @@ public class Sistema {
     }
 
     public static void verificandoOp() {
-        exibirMenuInicial();
-        menuSecundario();
 
+        menuSecundario();
         int op = lendoOp();
         switch (op) {
             case 1:
@@ -112,9 +112,9 @@ public class Sistema {
         ComissarioBordo comissario1 = new ComissarioBordo();
         System.out.print("Nome do Comissario: \n");
         comissario1.setNome(Console.lerString());
-        System.out.println("numero do cpf\n");
+        System.out.println("Numero do cpf\n");
         comissario1.setCpf(Console.lerInt());
-        System.out.println("numero de identificaçao do comissario\n");
+        System.out.println("Numero de identificaçao do comissario\n");
         comissario1.setIdCarteiraComissario(Console.lerInt());
         System.out.println("Funçao no voo\n");
         comissario1.setFuncaoVoo(Console.lerString());
@@ -123,7 +123,7 @@ public class Sistema {
 
     public static void cadastrarPassageiro() {
         Passageiro passageiro1 = new Passageiro();
-        System.out.print("Nome do passageiro1: \n");
+        System.out.print("Nome do passageiro: \n");
         passageiro1.setNome(Console.lerString());
         System.out.println("numero do cpf\n");
         passageiro1.setCpf(Console.lerInt());

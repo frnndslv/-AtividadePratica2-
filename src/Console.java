@@ -19,7 +19,7 @@ public class Console {
 
     public static String lerString() {
 
-        String valor = leitor.nextLine();
+        String valor = leitor.next();
         return valor;
 
     }
