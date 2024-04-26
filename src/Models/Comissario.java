@@ -1,20 +1,22 @@
 package Models;
 
-public class Comissario extends Pessoa {
+public lass Comissario extends Pessoa {
 
-    int idCarteiraComissario;
-    String funcaoVoo;
-
+        int
+        String funcaoVoo;
+        
     public Comissario() {
 
-    }
+        }
 
     public Comissario(String nome, long cpf, String telefone, int idCarteiraComissario, String funcaoVoo) {
         super(nome, cpf, telefone);
-        this.idCarteiraComissario = idCarteiraComissario;
-        this.funcaoVoo = funcaoVoo;
+     
+
+        
 
     }
+
 
     public int getIdCarteiraComissario() {
         return idCarteiraComissario;
@@ -24,18 +26,24 @@ public class Comissario extends Pessoa {
         this.idCarteiraComissario = idCarteiraComissario;
     }
 
-    public String getFuncaoVoo() {
-        return funcaoVoo;
-    }
+        public String getFuncaoVoo() {
+            return funcaoVoo;
+        }
 
-    public void setFuncaoVoo(String funcaoVoo) {
-        this.funcaoVoo = funcaoVoo;
-    }
+        public void setFuncaoVoo(String funcaoVoo) {
+            this.funcaoVoo = funcaoVoo;
+        }
 
-    @Override
-    public String toString() {
-        return "ComissarioBordo nome=" + nome + ", cpf=" + cpf + ", idCarteiraComissario=" + idCarteiraComissario
-                + ", telefone=" + telefone + ", funcaoVoo=" + funcaoVoo;
-    }
+        @Override
+            ic String toStrin
+         
 
-}
+        }
+            
+        
+
+        
+        
+            
+                    
+        

@@ -1,22 +1,26 @@
 package Models;
 
 public class Pessoa {
+     cp Stri
+    g telefone;
     String nome;
-    long cpf;
-    String telefone;
 
     public Pessoa() {
 
+    
     }
+    p
 
-    public Pessoa(String nome, long cpf, String telefone) {
         this.nome = nome;
-        this.cpf = cpf;
         this.telefone = telefone;
     }
 
-    public String getNome() {
-        return nome;
+
+    ic void
+
+    
+
+
     }
 
     public void setNome(String nome) {
@@ -39,4 +43,13 @@ public class Pessoa {
         this.telefone = telefone;
     }
 
-}
+       @Override
+
+     return "\nCPF: " + cpf +
+                "\nNome: " + nome;
+    }
+
+     
+
+    
+
