@@ -1,14 +1,14 @@
 import java.util.ArrayList;
 
+import javax.sound.midi.Soundbank;
+
+import Models.Cadastro;
 import Models.Comissario;
 import Models.Passageiro;
 import Models.Pessoa;
 import Models.Piloto;
-import Models.Voo;
 
 public class Sistema {
-
-    public static Voo voo = new Voo();
 
     public static void menuInicial() {
         int op;
@@ -91,13 +91,13 @@ public class Sistema {
                 break;
             case 3:
                 if (opcao2 == 1) {
-                    listarPiloto();
+                    Cadastro.listarPiloto();
                 } else if (opcao2 == 2) {
-                    listarComissario();
+                    Cadastro.listarComissario();
                 } else if (opcao2 == 3) {
-                    listarPassageiro();
+                    Cadastro.listarPassageiro();
                 } else if (opcao2 == 4) {
-                    listarTodos();
+                    Cadastro.listarTodos();
                 } else if (opcao2 == 5) {
                     menuInicial();
                 } else {
@@ -113,7 +113,7 @@ public class Sistema {
                 } else if (opcao2 == 3) {
                     excluirPassageiro();
                 } else if (opcao2 == 4) {
-                    excluirTodos();
+                    Cadastro.excluirTodos();
                 } else if (opcao2 == 5) {
                     menuInicial();
                 } else {
@@ -134,319 +134,149 @@ public class Sistema {
     }
 
     public static void cadastrarPiloto() {
-        Piloto piloto1 = new Piloto();
+        String funcaoVoo;
+        int idbreve;
+        long cpf;
+        String telefone;
+        String nome;
 
         System.out.print("Nome do piloto: \n");
-        piloto1.setNome(Console.lerString());
+        nome = Console.lerString();
 
         System.out.println("numero do cpf\n");
-        piloto1.setCpf(Console.lerLong());
+        cpf = Console.lerLong();
 
         System.out.println("numero do bres\n");
-        piloto1.setIdbreve(Console.lerInt());
+        idbreve = Console.lerInt();
 
         System.out.println("telefone\n");
-        piloto1.setTelefone(Console.lerString());
+        telefone = Console.lerString();
 
         System.out.println("Funçao no voo\n");
-        piloto1.setFuncaoVoo(Console.lerString());
+        funcaoVoo = Console.lerString();
+
+        Piloto piloto1 = new Piloto(cpf, nome, telefone, idbreve, funcaoVoo);
+
+        Cadastro.cadastrar(piloto1);
 
         System.out.println("Cadastro realizado com sucesso!!\n");
 
-        ArrayList<Pessoa> pessoas = voo.getPessoas();
-        pessoas.add(piloto1);
-        voo.setPessoas(pessoas);
     }
 
     public static void cadastrarComissario() {
-        Comissario comissario1 = new Comissario();
+        String nome;
+        long cpf;
+        String telefone;
+        int idCarteiraComissario;
+        String funcaoVoo;
 
         System.out.print("Nome do Comissario: \n");
-        comissario1.setNome(Console.lerString());
+        nome = Console.lerString();
 
         System.out.println("Numero do cpf\n");
-        comissario1.setCpf(Console.lerLong());
-
-        System.out.println("Numero de identificaçao do comissario\n");
-        comissario1.setIdCarteiraComissario(Console.lerInt());
+        cpf = Console.lerLong();
 
         System.out.println("telefone\n");
-        comissario1.setTelefone(Console.lerString());
+        telefone = Console.lerString();
+
+        System.out.println("Numero de identificaçao do comissario\n");
+        idCarteiraComissario = Console.lerInt();
 
         System.out.println("Funçao no voo\n");
-        comissario1.setFuncaoVoo(Console.lerString());
+
+        funcaoVoo = Console.lerString();
+
+        Comissario comissario1 = new Comissario(cpf, nome, telefone, idCarteiraComissario, funcaoVoo);
+        Cadastro.cadastrar(comissario1);
 
         System.out.println("Cadastro realizado com sucesso!!\n");
-
-        ArrayList<Pessoa> pessoas = voo.getPessoas();
-        pessoas.add(comissario1);
-        voo.setPessoas(pessoas);
 
     }
 
     public static void cadastrarPassageiro() {
-        Passageiro passageiro1 = new Passageiro();
+        long cpf;
+        String nome;
+        String telefone;
+        String numeroPoltrona;
+        String numeroCartaoEmbarque;
 
         System.out.print("Nome do passageiro: \n");
-        passageiro1.setNome(Console.lerString());
+        nome = Console.lerString();
 
         System.out.println("numero do cpf\n");
-        passageiro1.setCpf(Console.lerLong());
+        cpf = Console.lerLong();
 
         System.out.println("telefone\n");
-        passageiro1.setTelefone(Console.lerString());
+        telefone = Console.lerString();
 
-        System.out.println("numero voo\n");
-        passageiro1.setNumeroPoltrona(Console.lerString());
+        System.out.println("numero poltrona\n");
+        numeroPoltrona = Console.lerString();
 
         System.out.println("Numero do cartao de embarque\n");
-        passageiro1.setNumeroCartaoEmbarque(Console.lerString());
+        numeroCartaoEmbarque = Console.lerString();
 
         System.out.println("Cadastro realizado com sucesso!!\n");
 
-        ArrayList<Pessoa> pessoas = voo.getPessoas();
-        pessoas.add(passageiro1);
-        voo.setPessoas(pessoas);
-    }
-
-    public static void listarPiloto() {
-        // esse array de pessoas( que tem nome piloto) so pra imprimir.
-        ArrayList<Pessoa> pilotos = new ArrayList<Pessoa>();
-
-        ArrayList<Pessoa> pessoas = voo.getPessoas();
-        // pego pessos cadastradas de voo, e coloco num array,
-        // percorro todo esse array
-
-        for (int i = 0; i < pessoas.size(); i++) {
-            // eu verifico se em array pessoa, a pessoa é do tipo piloto? se sim eu pego
-            // e adiciono em outro array para imprimir, isso foi uma gambi, espremi que nem
-            // pedra e nao saiu nada melhor.
-            if (pessoas.get(i) instanceof Piloto) {
-                pilotos.add(pessoas.get(i));
-            }
-        }
-
-        for (int i = 0; i < pilotos.size(); i++) {
-            System.out.println(pilotos.get(i).toString());
-        }
-
-    }
-
-    // eu so repeti tudo de antes mudando piloto pra passageiro.
-    public static void listarPassageiro() {
-
-        ArrayList<Pessoa> passageiros = new ArrayList<Pessoa>();
-
-        ArrayList<Pessoa> pessoas = voo.getPessoas();
-
-        for (int i = 0; i < pessoas.size(); i++) {
-
-            if (pessoas.get(i) instanceof Passageiro) {
-                passageiros.add(pessoas.get(i));
-            }
-        }
-
-        for (int i = 0; i < passageiros.size(); i++) {
-            System.out.println(passageiros.get(i).toString());
-        }
-    }
-
-    public static void listarComissario() {
-        ArrayList<Pessoa> comissarios = new ArrayList<Pessoa>();
-
-        ArrayList<Pessoa> pessoas = voo.getPessoas();
-
-        for (int i = 0; i < pessoas.size(); i++) {
-
-            if (pessoas.get(i) instanceof Comissario) {
-                comissarios.add(pessoas.get(i));
-            }
-        }
-
-        for (int i = 0; i < comissarios.size(); i++) {
-            System.out.println(comissarios.get(i).toString());
-        }
-    }
-
-    public static void listarTodos() {
-        ArrayList<Pessoa> pessoas = voo.getPessoas();
-        System.out.println(pessoas.toString());
-
+        Passageiro passageiro1 = new Passageiro(cpf, nome, telefone, numeroPoltrona, numeroCartaoEmbarque);
+        Cadastro.cadastrar(passageiro1);
     }
 
     public static void buscarPiloto() {
-        ArrayList<Pessoa> pilotos = new ArrayList<Pessoa>();
 
-        ArrayList<Pessoa> pessoas = voo.getPessoas();
-        System.out.println("Informe o cpf do piloto que deseja buscar:");
+        System.out.println("Informe o cpf do Piloto que deseja buscar:");
         long cpf = Console.lerLong();
-        boolean achouCpf = false;
-        for (int i = 0; i < pessoas.size(); i++) {
-
-            if (pessoas.get(i) instanceof Piloto) {
-                pilotos.add(pessoas.get(i));
-            }
-        }
-
-        for (int i = 0; i < pilotos.size(); i++) {
-            if (pilotos.get(i).getCpf() == cpf) {
-                System.out.println(pilotos.get(i).toString());
-                achouCpf = true;
-            }
-
-        }
-        if (achouCpf == false) {
-            System.out.println("Piloto nao encontrado!!");
+        Cadastro.buscarPiloto(cpf);
+        if (Cadastro.buscarPiloto(cpf) != null) {
+            System.out.println("Piloto encontrado!!" + Cadastro.buscarPiloto(cpf));
+        } else {
+            System.out.println("Piloto " + cpf + " Nao encontrado!!");
         }
 
     }
 
     public static void buscarPassageiro() {
-        ArrayList<Pessoa> passageiros = new ArrayList<Pessoa>();
 
-        ArrayList<Pessoa> pessoas = voo.getPessoas();
         System.out.println("Informe o cpf do Passageiro que deseja buscar:");
         long cpf = Console.lerLong();
-        boolean achouCpf = false;
-        for (int i = 0; i < pessoas.size(); i++) {
-
-            if (pessoas.get(i) instanceof Passageiro) {
-                passageiros.add(pessoas.get(i));
-            }
+        Cadastro.buscarPassageiro(cpf);
+        if (Cadastro.buscarPassageiro(cpf) != null) {
+            System.out.println("Passageiro encontrado!!" + Cadastro.buscarPassageiro(cpf));
+        } else {
+            System.out.println("Passageiro " + cpf + " Nao encontrado!!");
         }
 
-        for (int i = 0; i < passageiros.size(); i++) {
-            if (passageiros.get(i).getCpf() == cpf) {
-                System.out.println(passageiros.get(i).toString());
-                achouCpf = true;
-            }
-
-        }
-        if (achouCpf == false) {
-            System.out.println("Passageiro nao encontrado!!");
-        }
     }
 
     public static void buscarComissario() {
-        ArrayList<Pessoa> comissario = new ArrayList<Pessoa>();
 
-        ArrayList<Pessoa> pessoas = voo.getPessoas();
         System.out.println("Informe o cpf do comissario que deseja buscar:");
         long cpf = Console.lerLong();
-        boolean achouCpf = false;
-        for (int i = 0; i < pessoas.size(); i++) {
-
-            if (pessoas.get(i) instanceof Comissario) {
-                comissario.add(pessoas.get(i));
-            }
-        }
-
-        for (int i = 0; i < comissario.size(); i++) {
-            if (comissario.get(i).getCpf() == cpf) {
-                System.out.println(comissario.get(i).toString());
-                achouCpf = true;
-            }
-
-        }
-        if (achouCpf == false) {
-            System.out.println("Comissario não encontrado!!");
+        Cadastro.buscarComissario(cpf);
+        if (Cadastro.buscarComissario(cpf) != null) {
+            System.out.println("Comissario encontrado!!" + Cadastro.buscarComissario(cpf));
+        } else {
+            System.out.println("Comissario " + cpf + " Nao encontrado!!");
         }
     }
 
     public static void excluirPiloto() {
-        ArrayList<Pessoa> piloto = new ArrayList<Pessoa>();
-
-        ArrayList<Pessoa> pessoas = voo.getPessoas();
-        System.out.println("Informe o cpf do Piloto que deseja excluir:");
+        System.out.println("informe o cpf a se r excluido ");
         long cpf = Console.lerLong();
-        boolean achouCpf = false;
-        for (int i = 0; i < pessoas.size(); i++) {
+        Cadastro.excluirPiloto(cpf);
 
-            if (pessoas.get(i) instanceof Piloto) {
-                piloto.add(pessoas.get(i));
-            }
-        }
+    }
 
-        for (int i = 0; i < piloto.size(); i++) {
-            if (piloto.get(i).getCpf() == cpf) {
-                System.out.println("Piloto" + pessoas.get(i) + " excluido!!");
-                piloto.remove(pessoas.get(i));
-                achouCpf = true;
-            }
-
-        }
-        if (achouCpf == false) {
-            System.out.println("Não existem  Pilotos cadastrados para esse voo!!\"");
-        }
+    public static void excluirComissario() {
+        System.out.println("informe o cpf a se r excluido ");
+        long cpf = Console.lerLong();
+        Cadastro.excluirComissario(cpf);
 
     }
 
     public static void excluirPassageiro() {
-        ArrayList<Pessoa> passageiro = new ArrayList<Pessoa>();
-
-        ArrayList<Pessoa> pessoas = voo.getPessoas();
-        System.out.println("Informe o cpf do passageiro que deseja excluir:");
+        System.out.println("informe o cpf a se r excluido ");
         long cpf = Console.lerLong();
-        boolean achouCpf = false;
-        for (int i = 0; i < pessoas.size(); i++) {
-
-            if (pessoas.get(i) instanceof Passageiro) {
-                passageiro.add(pessoas.get(i));
-            }
-        }
-
-        for (int i = 0; i < passageiro.size(); i++) {
-            if (passageiro.get(i).getCpf() == cpf) {
-                System.out.println("Passageiro " + pessoas.get(i) + " excluido!!");
-                passageiro.remove(pessoas.get(i));
-                achouCpf = true;
-            }
-
-        }
-        if (achouCpf == false) {
-            System.out.println("Não existem  Passageiros cadastrados para esse voo!!");
-        }
-    }
-
-    public static void excluirComissario() {
-        ArrayList<Pessoa> comissario = new ArrayList<Pessoa>();
-
-        ArrayList<Pessoa> pessoas = voo.getPessoas();
-        System.out.println("Informe o cpf do comissario que deseja excluir:");
-        long cpf = Console.lerLong();
-        boolean achouCpf = false;
-        for (int i = 0; i < pessoas.size(); i++) {
-
-            if (pessoas.get(i) instanceof Comissario) {
-                comissario.add(pessoas.get(i));
-            }
-        }
-
-        for (int i = 0; i < comissario.size(); i++) {
-            if (comissario.get(i).getCpf() == cpf) {
-                System.out.println("Comissario " + pessoas.get(i) + " excluido!!");
-                comissario.remove(pessoas.get(i));
-                achouCpf = true;
-            }
-
-        }
-        if (achouCpf == false) {
-            System.out.println("Não existem  comissarios cadastrados para esse voo!!");
-        }
-    }
-
-    public static void excluirTodos() {
-
-        ArrayList<Pessoa> pessoas = voo.getPessoas();
-
-        for (int i = 0; i < pessoas.size(); i++) {
-
-            if (pessoas.get(i) instanceof Comissario) {
-                pessoas.remove(pessoas.get(i));
-            }
-        }
-        System.out.println("Todos os tripulantes e passageiros bem como seus respectivos dados, foram excluidos ");
-
+        Cadastro.excluirPassageiro(cpf);
     }
 
 }
