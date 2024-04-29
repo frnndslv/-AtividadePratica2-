@@ -53,9 +53,9 @@ public class Sistema {
             op2 = lendoOp();
             if (op2 != 5)
                 switchOpcao(opcao, op2);
-        } while (op2 != 5);
+            } while (op2 != 5);
 
-        System.out.println("Voltando para o menu principal!");
+            System.out.println("Voltando para o menu principal!");
 
     }
 
