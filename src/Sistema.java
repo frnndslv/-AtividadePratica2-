@@ -1,11 +1,7 @@
-import java.util.ArrayList;
-
-import javax.sound.midi.Soundbank;
 
 import Models.Cadastro;
 import Models.Comissario;
 import Models.Passageiro;
-import Models.Pessoa;
 import Models.Piloto;
 
 public class Sistema {
@@ -64,10 +60,13 @@ public class Sistema {
     }
 
     private static void switchOpcao(int opcao1, int opcao2) {
+
         switch (opcao1) {
             case 1:
+
                 if (opcao2 == 1) {
                     cadastrarPiloto();
+
                 } else if (opcao2 == 2) {
                     cadastrarComissario();
                 } else if (opcao2 == 3) {
@@ -263,6 +262,9 @@ public class Sistema {
         System.out.println("informe o cpf a se r excluido ");
         long cpf = Console.lerLong();
         Cadastro.excluirPiloto(cpf);
+        // listinha zeradinha , zero bala tem nada kkkkkk
+        System.out.println(
+                "AEEEEEEEEEE vc ferrou com o trabalho alheio e agora todos os dados do voo foram perdidos mane!!!");
 
     }
 

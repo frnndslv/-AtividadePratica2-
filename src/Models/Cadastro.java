@@ -1,6 +1,5 @@
 package Models;
 
-import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +30,7 @@ public class Cadastro {
         }
 
         for (int i = 0; i < pilotos.size(); i++) {
-            System.out.println(pilotos.get(i).toString());
+            pilotos.get(i).toString();
         }
 
     }
@@ -134,6 +133,7 @@ public class Cadastro {
 
         if (indexPiloto != -1) {
             listaPessoa.remove(indexPiloto);
+
         } else {
             System.out.println("Piloto " + cpf + " Nao encontrado!!");
         }
@@ -186,8 +186,6 @@ public class Cadastro {
 
         if (indexPassageiro != -1) {
             listaPessoa.remove(indexPassageiro);
-        } else {
-            System.out.println("Piloto " + cpf + " Nao encontrado!!");
         }
 
     }
@@ -195,7 +193,6 @@ public class Cadastro {
     public static void excluirTodos() {
         // listinha zeradinha , zero bala tem nada kkkkkk
         listaPessoa = new ArrayList<Pessoa>();
-        System.out.println(
-                "AEEEEEEEEEE vc ferrou com o trabalho alheio e agora todos os dados do voo foram perdidos mane!!!");
+
     }
 }
